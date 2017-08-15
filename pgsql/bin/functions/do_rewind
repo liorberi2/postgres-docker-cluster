@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo ">>> Rewinding to the latest state"
+echo ">>> Currently not working! Skipping rewind."
 # rm -rf $PGDATA/pg_xlog/archive_status/
 # gosu postgres pg_ctl -D "$PGDATA"  -o "-c listen_addresses='localhost'" -w start
 # gosu postgres pg_ctl stop
