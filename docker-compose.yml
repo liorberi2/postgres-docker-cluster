@@ -83,48 +83,7 @@ services:
                     - pgslave2
 #>>> Branch 1
 #<<< Branch 2
-    pgslave3:
-#        image: paunin/postdock-pgsql
-        build:
-            context: .
-            dockerfile: Postgres-latest.Dockerfile
-        environment:
-            PARTNER_NODES: "pgmaster,pgslave1,pgslave3"
-            REPLICATION_PRIMARY_HOST: pgmaster
-            NODE_ID: 4
-            NODE_NAME: node4
-            CLUSTER_NODE_NETWORK_NAME: pgslave3 # (default: hostname of the node)
-            NODE_PRIORITY: 200  # (default: 100)
-            CLEAN_OVER_REWIND: 1
-        ports:
-            - 5443:5432
-        volumes:
-            - pgslave3:/var/lib/postgresql/data
-        networks:
-            cluster:
-                aliases:
-                    - pgslave3
 
-    pgslave4:
-#        image: paunin/postdock-pgsql
-        build:
-            context: .
-            dockerfile: Postgres-latest.Dockerfile
-        environment:
-            REPLICATION_PRIMARY_HOST: pgslave3
-            NODE_ID: 5
-            NODE_NAME: node5
-            CLUSTER_NODE_NETWORK_NAME: pgslave4 # (default: hostname of the node)
-            #USE_REPLICATION_SLOTS: 0
-        ports:
-            - 5444:5432
-        volumes:
-            - pgslave4:/var/lib/postgresql/data
-        networks:
-            cluster:
-                aliases:
-                    - pgslave4
-#>>> Branch 2
     backup:
 #        image: paunin/postdock-barman
         build:
@@ -182,6 +141,4 @@ volumes:
     pgmaster:
     pgslave1:
     pgslave2:
-    pgslave3:
-    pgslave4:
     backup:
