@@ -10,7 +10,7 @@ services:
             context: .
             dockerfile: Postgres-latest.Dockerfile
         environment:
-            PARTNER_NODES: "pgmaster,pgslave1,pgslave3"
+            PARTNER_NODES: "pgmaster,pgslave1,pgslave2"
             NODE_ID: 1 # Integer number of node
             NODE_NAME: node1 # Node name
             CLUSTER_NODE_NETWORK_NAME: pgmaster # (default: hostname of the node)
