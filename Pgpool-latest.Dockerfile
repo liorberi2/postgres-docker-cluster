@@ -1,1 +1,1 @@
-./Pgpool-3.6.Dockerfile
+./Pgpool-latest.Dockerfile
