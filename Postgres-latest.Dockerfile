@@ -1,1 +1,1 @@
-Postgres-13.6.Dockerfile
+Postgres-latest.Dockerfile
