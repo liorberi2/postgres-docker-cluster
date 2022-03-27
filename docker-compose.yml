@@ -8,7 +8,7 @@ services:
 #        image: paunin/postdock-pgsql
         build:
             context: .
-            dockerfile: Postgres-latest.Dockerfile
+            dockerfile: Postgres-9.5.Dockerfile
         environment:
             PARTNER_NODES: "pgmaster,pgslave1,pgslave2"
             NODE_ID: 1 # Integer number of node
